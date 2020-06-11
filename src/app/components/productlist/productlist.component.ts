@@ -1,5 +1,4 @@
 import {Component} from '@angular/core';
-import {IProduct} from '../../models/IProduct';
 
 @Component({
   selector: 'app-productlist',
@@ -33,7 +32,7 @@ import {IProduct} from '../../models/IProduct';
   ],
 })
 export class ProductlistComponent {
-  products: IProduct[] = [
+  products: any[] = [
     {title: `Shoe A`, count: 150, price: 2.25}, // notice the error
     {title: `Shoe B`, count: 200, price: 2.78}
   ];
