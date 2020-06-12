@@ -19,11 +19,14 @@ import {Component} from '@angular/core';
         </button>
         <div class="collapse navbar-collapse" id="navbarCollapse">
           <ul class="navbar-nav mr-auto">
-            <li class="nav-item">
-              <a class="nav-link">Home</a>
+            <li [routerLinkActive]="['active']" class="nav-item">
+              <a class="nav-link" [routerLink]="['/home']">Home</a>
             </li>
-            <li class="nav-item">
-              <a class="nav-link">About</a>
+            <li [routerLinkActive]="['active']" class="nav-item">
+              <a class="nav-link" [routerLink]="['/about']">About</a>
+            </li>
+            <li [routerLinkActive]="['active']" class="nav-item">
+              <a class="nav-link" [routerLink]="['/products']">Products</a>
             </li>
           </ul>
           <form class="form-inline mt-2 mt-md-0">
@@ -35,4 +38,5 @@ import {Component} from '@angular/core';
     </header>`
 })
 
-export class HeaderComponent {}
+export class HeaderComponent {
+}
