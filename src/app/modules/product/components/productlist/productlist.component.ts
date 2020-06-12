@@ -50,7 +50,10 @@ export class ProductlistComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.products = this.productService.getProducts();
+    this.productService.getProducts().subscribe(
+      result => this.products = result,
+      err => this.error = err
+    );
   }
 
   onRatingClicked($event: string) {
