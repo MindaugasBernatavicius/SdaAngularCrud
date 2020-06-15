@@ -2,7 +2,7 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { StarComponent } from './star.component';
 
-describe('StarComponent', () => {
+fdescribe('StarComponent', () => {
   let component: StarComponent;
   let fixture: ComponentFixture<StarComponent>;
 
@@ -21,5 +21,9 @@ describe('StarComponent', () => {
 
   it('should create', () => {
     expect(component).toBeTruthy();
+  });
+
+  it('rating should be instantiated to 0', () => {
+    expect(component.rating).toEqual(1);
   });
 });

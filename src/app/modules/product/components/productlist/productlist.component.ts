@@ -52,7 +52,15 @@ export class ProductlistComponent implements OnInit {
   ngOnInit(): void {
     this.productService.getProducts().subscribe(
       result => this.products = result,
-      err => this.error = err
+      err => {
+        switch (err.status) {
+          case 0:
+            this.error = `Failed to connect to: ` + err.url + ` with ` + err.statusText + `. Check connection to the server`;
+            break;
+          default:
+            this.error = `Error: ` + err.message;
+        }
+      }
     );
   }
 

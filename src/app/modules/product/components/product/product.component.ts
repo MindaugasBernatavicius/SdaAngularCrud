@@ -70,7 +70,7 @@ export class ProductComponent implements OnInit {
     this.router.navigate(['/products']);
   }
 
-  onSubmit(form: NgForm) {
+  onSubmit(form: NgForm): void {
     console.log(form.valid);
     this.productService.postProductForm(this.product)
       .subscribe(
@@ -79,11 +79,10 @@ export class ProductComponent implements OnInit {
       );
   }
 
-  private onHttpError(error: Error) {
+  private onHttpError(error: Error): void {
     console.log(`Error: `, error);
     this.postError = true;
     this.postErrorMsg = error.message;
   }
 }
-
 // product.component.ts

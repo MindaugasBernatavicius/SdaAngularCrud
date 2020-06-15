@@ -20,7 +20,8 @@ import { ProductModule } from './modules/product/product.module';
     HeaderComponent,
     FooterComponent,
     HomeComponent,
-    AboutComponent
+    AboutComponent,
+    HeaderComponent
   ],
   imports: [
     BrowserModule,

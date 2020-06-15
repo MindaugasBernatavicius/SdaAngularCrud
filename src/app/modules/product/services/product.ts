@@ -16,12 +16,28 @@ export class ProductService {
     })
   };
 
-  getProducts(): any {
-    return this.httpClient.get(this.url);
+  // You can skip the types if you need to do something fast:
+  // getProducts(): any {
+  //   return this.httpClient.get(this.url);
+  // }
+
+  getProducts(): Observable<IProduct[]> {
+    return this.httpClient.get<IProduct[]>(this.url);
   }
 
-  getProductById(id: number): any {
-    return this.httpClient.get(this.url + '/' + id);
+  // getProductById(id: number): any {
+  //   return this.httpClient.get(this.url + '/' + id);
+  // }
+
+  getProductById(id: number): Observable<IProduct> {
+    // let productToReturn: IProduct;
+    // for (let i = 0; i < this.products.length; i++) {
+    //   if (this.products[i].id === _id) {
+    //     productToReturn = this.products[i];
+    //   }
+    // }
+    // return productToReturn;
+    return this.httpClient.get<IProduct>(this.url + '/' + id);
   }
 
   // getProducts(): IProduct[] {
@@ -34,9 +50,15 @@ export class ProductService {
   constructor(private httpClient: HttpClient) {
   }
 
-  postProductForm(product: IProduct): any {
+  // postProductForm(product: IProduct): any {
+  //   // console.log(product.id);
+  //   return this.httpClient.put(this.url + '/' + product.id, product, this.httpOptions);
+  //   // return of(product);
+  // }
+
+  postProductForm(product: IProduct): Observable<IProduct> {
     // console.log(product.id);
-    return this.httpClient.put(this.url + '/' + product.id, product, this.httpOptions);
+    return this.httpClient.put<IProduct>(this.url + '/' + product.id, product, this.httpOptions);
     // return of(product);
   }
 }
