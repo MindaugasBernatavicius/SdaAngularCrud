@@ -23,7 +23,7 @@ import {Router} from '@angular/router';
           </thead>
           <tbody>
           <tr *ngFor='let product of products'>
-            <td><a [routerLink]="['/products', product.id]" [state]="{product: product}">{{ product.title }}</a></td>
+            <td><a [routerLink]="['/products', product.id]" [state]="{product: product}">{{ product.title | convertToSpaces: '-' }}</a></td>
             <td>{{ product.count }}</td>
             <td>{{ product.price | currency: 'USD':'symbol':'4.2-2' }}</td>
             <td>
