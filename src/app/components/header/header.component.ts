@@ -8,6 +8,9 @@ import {Component} from '@angular/core';
   template: `
     <header>
       <nav class="navbar navbar-expand-md navbar-dark static-top bg-dark">
+        <a class="navbar-brand" href="#">
+          <img src="http://placehold.it/150x50?text=Logo" alt="">
+        </a>
         <a class="navbar-brand">Fixed navbar</a>
         <button class="navbar-toggler" type="button"
                 data-toggle="collapse"
