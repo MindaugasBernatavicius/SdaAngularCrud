@@ -25,6 +25,26 @@ import {Component} from '@angular/core';
     <input type="text" [(ngModel)]="text">
     <div>{{text}}&#160;</div>              <!-- one-way binding w/ interpolation -->
     <input type="text" [(ngModel)]="text"> <!-- two-way binding-->
+    <br>
+    <br>
+    <label>Filter:</label>
+    <input type="text" (input)="onFilter($event.target.value)">
+    <table *ngIf="products.length">
+      <thead>
+      <tr>
+        <th>Title</th>
+        <th>Count</th>
+        <th>Price</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor='let product of filteredProducts'>
+        <td>{{ product.title }}</td>
+        <td>{{ product.count }}</td>
+        <td>{{ product.price | currency: 'USD':'symbol':'4.2-2' }}</td>
+      </tr>
+      </tbody>
+    </table>
   `,
   styles: [
     'td, th { border: 1px solid black; }',
@@ -43,6 +63,7 @@ export class ProductlistComponent {
 
   // two-way binding
   text = `Placeholder text`;
+  filteredProducts = this.products;
 
   myCustomOnClickHandler($event: MouseEvent) {
     // toggle the message and button text
@@ -54,5 +75,18 @@ export class ProductlistComponent {
       console.log(`${i} --> ${this.products[i].title}`);
     }
   }
+
+  // code for filtering
+  performFilter(filter: string): any[] {
+    return this.products.filter((p: any) =>
+      p.title.toLocaleLowerCase().indexOf(filter) !== -1);
+  }
+
+  onFilter(val: string): void {
+    this.filteredProducts = val ?
+      this.performFilter(val) :
+      this.products;
+  }
 }
+
 // productlist.component.ts
