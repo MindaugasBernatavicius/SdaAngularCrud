@@ -29,10 +29,17 @@ import {Component} from '@angular/core';
               <a class="nav-link" [routerLink]="['/products']">Products</a>
             </li>
           </ul>
-          <form class="form-inline mt-2 mt-md-0">
-            <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
-            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-          </form>
+          <div class="navbar-collapse collapse w-100 order-3 dual-collapse2">
+            <ul class="navbar-nav ml-auto">
+              <li [routerLinkActive]="['active']" class="nav-item">
+                <a class="nav-link" [routerLink]="['/register']">Register</a>
+              </li>
+            </ul>
+            <form class="form-inline mt-2 mt-md-0">
+              <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
+              <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+            </form>
+          </div>
         </div>
       </nav>
     </header>`
